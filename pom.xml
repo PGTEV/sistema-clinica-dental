@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<!-- Spring Boot aporta una configuración base y versiones compatibles. -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -26,19 +27,24 @@
 		<tag/>
 		<url/>
 	</scm>
+	<!-- Versión de Java con la que se compila el proyecto. -->
 	<properties>
 		<java.version>21</java.version>
 	</properties>
+	<!-- Librerías que agregan las capacidades necesarias al proyecto. -->
 	<dependencies>
+		<!-- Thymeleaf permite devolver y mostrar las plantillas HTML. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<!-- Web MVC recibe las solicitudes HTTP y trabaja con los controladores. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 
+		<!-- Dependencia disponible únicamente cuando se ejecutan pruebas. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf-test</artifactId>
@@ -51,6 +57,7 @@
 		</dependency>
 	</dependencies>
 
+	<!-- Plugin que empaqueta y ejecuta la aplicación como Spring Boot. -->
 	<build>
 		<plugins>
 			<plugin>

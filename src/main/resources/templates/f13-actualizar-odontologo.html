@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración técnica: codificación, adaptación a celulares, título y archivos compartidos. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar odontólogo | Clínica Dental</title>
+    <!-- Hoja CSS: aplica el mismo diseño sencillo a todas las pantallas. -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- JavaScript: se carga al final para que encuentre los elementos HTML. -->
+    <script src="/js/app.js" defer></script>
+</head>
+<!-- Vista interna del sistema: solo se muestra después del inicio de sesión. -->
+<body data-interna="true">
+    <!-- Contenedor que agrupa la navegación lateral y el contenido de esta función. -->
+    <div class="app">
+        
+    <!-- Menú común: permite navegar entre los módulos de la clínica. -->
+    <aside class="sidebar">
+        <h2>Clínica Dental</h2>
+
+        <!-- Navegación principal. Cada enlace representa módulos
+             definidos dentro de las 20 funcionalidades del proyecto. -->
+        <a href="/dashboard.html">Inicio</a>
+        <a href="/f02-registrar-paciente.html">Registrar paciente</a>
+        <a href="/f03-consultar-pacientes.html">Consultar pacientes</a>
+        <a href="/f04-actualizar-paciente.html">Actualizar paciente</a>
+        <a href="/f05-registrar-categoria.html">Registrar categoría</a>
+        <a href="/f06-consultar-categorias.html">Consultar categorías</a>
+        <a href="/f07-actualizar-categoria.html">Actualizar categoría</a>
+        <a href="/f08-registrar-servicio.html">Registrar servicio</a>
+        <a href="/f09-consultar-servicios.html">Consultar servicios</a>
+        <a href="/f10-actualizar-servicio.html">Actualizar servicio</a>
+        <a href="/f11-registrar-odontologo.html">Registrar odontólogo</a>
+        <a href="/f12-consultar-odontologos.html">Consultar odontólogos</a>
+        <a href="/f13-actualizar-odontologo.html">Actualizar odontólogo</a>
+        <a href="/f14-registrar-consultorio.html">Registrar consultorio</a>
+        <a href="/f15-consultar-consultorios.html">Consultar consultorios</a>
+        <a href="/f16-registrar-horario.html">Registrar horario</a>
+        <a href="/f17-disponibilidad.html">Disponibilidad</a>
+        <a href="/f18-agendar-cita.html">Agendar cita</a>
+        <a href="/f19-cancelar-cita.html">Cancelar cita</a>
+        <a href="/f20-reprogramar-cita.html">Reprogramar cita</a>
+        <a href="#" onclick="cerrarSesion(); return false;">Cerrar sesión</a>
+    </aside>
+    
+        <!-- Área principal: aquí cambia el formulario, tabla o información de cada módulo. -->
+        <main class="content">
+            <!-- Encabezado que identifica la pantalla actual para el usuario. -->
+            <header class="topbar">
+                <h1>Actualizar odontólogo</h1>
+                <p>Sistema web de agenda de citas odontológicas</p>
+            </header>
+            
+<section class="form-container">
+    <!-- F13: actualización del registro seleccionado. -->
+    <!-- Formulario de esta operación. Los campos required evitan enviarlo incompleto. -->
+    <form onsubmit="guardarFormulario(event, 'actualizacion')">
+        <div class="form-grid">
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input id="id" name="id" type="text" value="1" required>
+        </div>
+        <div class="form-group">
+            <label for="nombres">Nombres</label>
+            <input id="nombres" name="nombres" type="text" value="Carlos" required>
+        </div>
+        <div class="form-group">
+            <label for="apellidos">Apellidos</label>
+            <input id="apellidos" name="apellidos" type="text" value="Pérez" required>
+        </div>
+        <div class="form-group">
+            <label for="colegiatura">Colegiatura</label>
+            <input id="colegiatura" name="colegiatura" type="text" value="C001" required>
+        </div></div>
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Guardar cambios</button>
+            <button class="btn btn-secondary" type="reset">Restablecer</button>
+        </div>
+        <div id="message" class="message"></div>
+    </form>
+</section>
+
+        </main>
+    </div>
+</body>
+</html>

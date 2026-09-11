@@ -1,0 +1,141 @@
+/*
+ * Estilos compartidos de la clínica dental.
+ * Cada regla usa una clase definida en los archivos HTML. Centralizar aquí
+ * los estilos evita repetir diseño en cada página y mantiene la interfaz
+ * visualmente uniforme cuando se agregan nuevas pantallas.
+ */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #222;
+    line-height: 1.45;
+}
+
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+
+/*
+ * Inicio de sesión: estas clases centran el formulario y dibujan una caja
+ * sencilla para que la primera pantalla quede separada del resto del sistema.
+ */
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 24px;
+    border: 1px solid #bbb;
+}
+
+.logo { margin-bottom: 22px; text-align: center; }
+.logo h1 { margin: 0 0 5px; color: #174f7c; }
+.logo p { margin: 0; color: #555; }
+
+/*
+ * Pantallas internas: .app organiza el menú y el contenido en dos columnas.
+ * La barra lateral contiene los enlaces de navegación y .content muestra el
+ * formulario, tabla o panel correspondiente a la opción elegida.
+ */
+.app { display: flex; min-height: 100vh; }
+
+.sidebar {
+    flex: 0 0 235px;
+    padding: 18px;
+    background: #174f7c;
+    color: #fff;
+}
+
+.sidebar h2 { margin: 0 0 16px; font-size: 20px; }
+
+.sidebar a {
+    display: block;
+    padding: 7px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.sidebar a:hover { background: rgba(255, 255, 255, .12); }
+
+.content { flex: 1; padding: 25px; }
+
+.topbar {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #174f7c;
+}
+
+.topbar h1 { margin: 0 0 4px; font-size: 26px; }
+.topbar p { margin: 0; color: #555; }
+
+/*
+ * Bloques de contenido: tarjetas, formularios y tablas reutilizan el mismo
+ * borde y espaciado. Así se distinguen claramente los datos sin usar efectos
+ * visuales complejos como sombras o degradados.
+ */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+}
+
+.card, .form-container, .table-container {
+    padding: 18px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.card h2, .card h3 { margin-top: 0; }
+.card p { margin-bottom: 0; }
+
+/*
+ * Formularios: la cuadrícula coloca dos campos por fila en pantallas grandes.
+ * Cada .form-group mantiene su etiqueta junto con el control que describe,
+ * lo cual mejora la lectura y la accesibilidad del formulario.
+ */
+.form-container { max-width: 850px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.form-group { display: flex; flex-direction: column; }
+.form-group.full { grid-column: 1 / -1; }
+.form-group label { margin-bottom: 5px; font-weight: bold; }
+
+.form-group input, .form-group select {
+    padding: 8px;
+    border: 1px solid #999;
+    border-radius: 0;
+    background: #fff;
+}
+
+.form-actions { display: flex; gap: 8px; margin-top: 18px; }
+
+/*
+ * Botones y tablas: los botones usan colores según la acción y las tablas
+ * delimitan cada fila y columna para que sea fácil consultar los registros.
+ */
+.btn { display: inline-block; padding: 8px 13px; border: 1px solid #174f7c; border-radius: 0; cursor: pointer; }
+.btn-primary { background: #174f7c; color: #fff; }
+.btn-secondary { background: #fff; color: #222; }
+.btn-danger { border-color: #a52222; background: #a52222; color: #fff; }
+.btn:hover { filter: brightness(.92); }
+
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 9px; text-align: left; border: 1px solid #bbb; }
+th { background: #e9eef2; }
+
+.message { display: none; margin-top: 15px; padding: 9px; border: 1px solid #78a879; background: #edf8ed; color: #245b26; }
+
+@media (max-width: 800px) {
+    /* En celulares se apilan menú y campos para evitar desplazamiento lateral. */
+    .app { display: block; }
+    .sidebar { min-height: auto; }
+    .content { padding: 18px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: auto; }
+}
