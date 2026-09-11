@@ -37,6 +37,15 @@ public class HomeController {
     }
 
     /**
+     * Muestra el panel principal. Se mantiene esta ruta sin la extensión .html
+     * porque el inicio de sesión y algunos accesos ya redirigen a /dashboard.
+     */
+    @GetMapping("/dashboard")
+    public String mostrarDashboard() {
+        return "dashboard";
+    }
+
+    /**
      * Devuelve cualquiera de las pantallas HTML del prototipo.
      *
      * Por ejemplo, la URL /f02-registrar-paciente.html recibe el valor
