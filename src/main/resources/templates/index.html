@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <!-- Configuración técnica: codificación, adaptación a celulares, título y archivos compartidos. -->
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión | Clínica Dental</title>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
 </head>
-<!-- Pantalla pública de acceso al sistema. -->
 <body>
-$END$
+    <main class="login-page">
+        <section class="login-card" aria-labelledby="titulo-login">
+            <header class="logo">
+                <h1 id="titulo-login">Clínica Dental</h1>
+                <p>Sistema de agenda de citas</p>
+            </header>
+
+            <!-- Maqueta de acceso. La validación real se añadirá con la base de datos. -->
+            <form action="/dashboard" method="post">
+                <div class="form-group">
+                    <label for="usuario">Usuario</label>
+                    <input id="usuario" name="usuario" type="text" placeholder="Ingrese su usuario" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="clave">Contraseña</label>
+                    <input id="clave" name="clave" type="password" placeholder="Ingrese su contraseña" required>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn" type="submit">Ingresar</button>
+                    <button class="btn" type="reset">Limpiar</button>
+                </div>
+            </form>
+
+            <p class="prototype-note">Prototipo académico en HTML y CSS.</p>
+        </section>
+    </main>
 </body>
 </html>

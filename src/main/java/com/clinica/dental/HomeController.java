@@ -3,6 +3,7 @@ package com.clinica.dental;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * Controlador principal de la aplicación.
@@ -42,6 +43,15 @@ public class HomeController {
      */
     @GetMapping("/dashboard")
     public String mostrarDashboard() {
+        return "dashboard";
+    }
+
+    /**
+     * Recibe el formulario del login de la maqueta y muestra el panel.
+     * La validación de credenciales se agregará junto con la base de datos.
+     */
+    @PostMapping("/dashboard")
+    public String ingresarAlSistema() {
         return "dashboard";
     }
 

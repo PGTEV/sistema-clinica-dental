@@ -1,141 +1,338 @@
-/*
- * Estilos compartidos de la clínica dental.
- * Cada regla usa una clase definida en los archivos HTML. Centralizar aquí
- * los estilos evita repetir diseño en cada página y mantiene la interfaz
- * visualmente uniforme cuando se agregan nuevas pantallas.
- */
-* { box-sizing: border-box; }
+/* Estilos generales del prototipo de la clínica dental. */
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #fff;
-    color: #222;
-    line-height: 1.45;
+    color: #243447;
+    background: #f4f8fb;
+    line-height: 1.5;
 }
 
-a { color: inherit; text-decoration: none; }
-button, input, select { font: inherit; }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-/*
- * Inicio de sesión: estas clases centran el formulario y dibujan una caja
- * sencilla para que la primera pantalla quede separada del resto del sistema.
- */
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* Inicio de sesión. */
 .login-page {
     min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: #eaf6fb;
 }
 
 .login-card {
     width: 100%;
-    max-width: 380px;
-    padding: 24px;
-    border: 1px solid #bbb;
+    max-width: 400px;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #c9e1eb;
+    border-top: 6px solid #1597bb;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(30, 86, 110, 0.12);
 }
 
-.logo { margin-bottom: 22px; text-align: center; }
-.logo h1 { margin: 0 0 5px; color: #174f7c; }
-.logo p { margin: 0; color: #555; }
+.logo {
+    margin-bottom: 24px;
+    text-align: center;
+}
 
-/*
- * Pantallas internas: .app organiza el menú y el contenido en dos columnas.
- * La barra lateral contiene los enlaces de navegación y .content muestra el
- * formulario, tabla o panel correspondiente a la opción elegida.
- */
-.app { display: flex; min-height: 100vh; }
+.logo h1 {
+    margin: 0 0 6px;
+    color: #126e82;
+    font-size: 30px;
+}
+
+.logo p {
+    margin: 0;
+    color: #607585;
+}
+
+.prototype-note {
+    margin: 20px 0 0;
+    color: #718491;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* Estructura de las pantallas internas. */
+.app {
+    display: flex;
+    min-height: 100vh;
+}
 
 .sidebar {
-    flex: 0 0 235px;
-    padding: 18px;
-    background: #174f7c;
-    color: #fff;
+    width: 245px;
+    padding: 22px 16px;
+    color: #ffffff;
+    background: #126e82;
 }
 
-.sidebar h2 { margin: 0 0 16px; font-size: 20px; }
+.sidebar h2 {
+    margin: 0 0 22px;
+    padding: 0 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    font-size: 22px;
+}
+
+.menu-label {
+    margin: 0 0 8px;
+    padding: 0 11px;
+    color: #bfe9f1;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
 
 .sidebar a {
     display: block;
-    padding: 7px 4px;
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    margin-bottom: 3px;
+    padding: 9px 11px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 15px;
 }
 
-.sidebar a:hover { background: rgba(255, 255, 255, .12); }
+.sidebar a:hover,
+.sidebar a:focus,
+.sidebar a.active {
+    background: #0e5b6c;
+    outline: none;
+}
 
-.content { flex: 1; padding: 25px; }
+.sidebar a.active {
+    border-left: 4px solid #75d7e8;
+    font-weight: bold;
+}
+
+.sidebar .logout-link {
+    margin-top: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    text-align: center;
+}
+
+.content {
+    width: calc(100% - 245px);
+    padding: 30px;
+}
 
 .topbar {
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #174f7c;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #d5e7ee;
 }
 
-.topbar h1 { margin: 0 0 4px; font-size: 26px; }
-.topbar p { margin: 0; color: #555; }
+.topbar h1 {
+    margin: 0 0 4px;
+    color: #126e82;
+    font-size: 30px;
+}
 
-/*
- * Bloques de contenido: tarjetas, formularios y tablas reutilizan el mismo
- * borde y espaciado. Así se distinguen claramente los datos sin usar efectos
- * visuales complejos como sombras o degradados.
- */
+.topbar p {
+    margin: 0;
+    color: #607585;
+}
+
+/* Panel principal. */
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 18px;
 }
 
-.card, .form-container, .table-container {
-    padding: 18px;
-    border: 1px solid #ccc;
-    background: #fff;
+.card,
+.form-container,
+.table-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #d5e7ee;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(30, 86, 110, 0.07);
 }
 
-.card h2, .card h3 { margin-top: 0; }
-.card p { margin-bottom: 0; }
-
-/*
- * Formularios: la cuadrícula coloca dos campos por fila en pantallas grandes.
- * Cada .form-group mantiene su etiqueta junto con el control que describe,
- * lo cual mejora la lectura y la accesibilidad del formulario.
- */
-.form-container { max-width: 850px; }
-.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.form-group { display: flex; flex-direction: column; }
-.form-group.full { grid-column: 1 / -1; }
-.form-group label { margin-bottom: 5px; font-weight: bold; }
-
-.form-group input, .form-group select {
-    padding: 8px;
-    border: 1px solid #999;
-    border-radius: 0;
-    background: #fff;
+.card {
+    border-left: 5px solid #5fc3d7;
 }
 
-.form-actions { display: flex; gap: 8px; margin-top: 18px; }
+.card h2,
+.card h3 {
+    margin: 0 0 10px;
+    color: #126e82;
+}
 
-/*
- * Botones y tablas: los botones usan colores según la acción y las tablas
- * delimitan cada fila y columna para que sea fácil consultar los registros.
- */
-.btn { display: inline-block; padding: 8px 13px; border: 1px solid #174f7c; border-radius: 0; cursor: pointer; }
-.btn-primary { background: #174f7c; color: #fff; }
-.btn-secondary { background: #fff; color: #222; }
-.btn-danger { border-color: #a52222; background: #a52222; color: #fff; }
-.btn:hover { filter: brightness(.92); }
+.card p {
+    margin-bottom: 0;
+}
 
-.table-container { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; }
-th, td { padding: 9px; text-align: left; border: 1px solid #bbb; }
-th { background: #e9eef2; }
+/* Formularios. */
+.form-container {
+    width: 100%;
+    max-width: 850px;
+}
 
-.message { display: none; margin-top: 15px; padding: 9px; border: 1px solid #78a879; background: #edf8ed; color: #245b26; }
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    color: #344f5d;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    color: #243447;
+    background: #ffffff;
+    border: 1px solid #b9cdd6;
+    border-radius: 5px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1597bb;
+    outline: 2px solid #d7f1f7;
+}
+
+.form-actions {
+    margin-top: 22px;
+}
+
+/* Botones. */
+.btn {
+    display: inline-block;
+    margin: 0 7px 7px 0;
+    padding: 9px 16px;
+    color: #126e82;
+    background: #e5f5f8;
+    border: 1px solid #8fcbd8;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+    background: #cfeef4;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background: #1597bb;
+    border-color: #1597bb;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: #126e82;
+}
+
+.btn-secondary {
+    color: #465d68;
+    background: #eef3f5;
+    border-color: #c4d2d8;
+}
+
+.btn-danger {
+    color: #ffffff;
+    background: #c94c4c;
+    border-color: #c94c4c;
+}
+
+.page-actions {
+    margin: 0 0 16px;
+}
+
+/* Tablas. */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+th,
+td {
+    padding: 11px 12px;
+    border-bottom: 1px solid #d8e5ea;
+    text-align: left;
+}
+
+th {
+    color: #ffffff;
+    background: #1597bb;
+}
+
+tbody tr:nth-child(even) {
+    background: #f0f8fa;
+}
+
+tbody tr:hover {
+    background: #e1f3f7;
+}
+
+/* Mensajes informativos de los formularios. */
+.message {
+    display: none;
+    margin-top: 16px;
+    padding: 10px;
+    color: #126e82;
+    background: #e5f5f8;
+    border: 1px solid #8fcbd8;
+    border-radius: 5px;
+}
+
+/* Adaptación para celulares y pantallas pequeñas. */
 @media (max-width: 800px) {
-    /* En celulares se apilan menú y campos para evitar desplazamiento lateral. */
-    .app { display: block; }
-    .sidebar { min-height: auto; }
-    .content { padding: 18px; }
-    .form-grid { grid-template-columns: 1fr; }
-    .form-group.full { grid-column: auto; }
+    .app {
+        display: block;
+    }
+
+    .sidebar,
+    .content {
+        width: 100%;
+    }
+
+    .sidebar {
+        padding: 18px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .form-grid,
+    .cards {
+        grid-template-columns: 1fr;
+    }
 }

@@ -6,42 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar servicio | Clínica Dental</title>
     <!-- Hoja CSS: aplica el mismo diseño sencillo a todas las pantallas. -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- JavaScript: se carga al final para que encuentre los elementos HTML. -->
-    <script src="/js/app.js" defer></script>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
 </head>
 <!-- Vista interna del sistema: solo se muestra después del inicio de sesión. -->
-<body data-interna="true">
+<body>
     <!-- Contenedor que agrupa la navegación lateral y el contenido de esta función. -->
     <div class="app">
         
-    <!-- Menú común: permite navegar entre los módulos de la clínica. -->
+    <!-- Menú principal organizado por módulos. -->
     <aside class="sidebar">
         <h2>Clínica Dental</h2>
-
-        <!-- Navegación principal. Cada enlace representa módulos
-             definidos dentro de las 20 funcionalidades del proyecto. -->
-        <a href="/dashboard.html">Inicio</a>
-        <a href="/f02-registrar-paciente.html">Registrar paciente</a>
-        <a href="/f03-consultar-pacientes.html">Consultar pacientes</a>
-        <a href="/f04-actualizar-paciente.html">Actualizar paciente</a>
-        <a href="/f05-registrar-categoria.html">Registrar categoría</a>
-        <a href="/f06-consultar-categorias.html">Consultar categorías</a>
-        <a href="/f07-actualizar-categoria.html">Actualizar categoría</a>
-        <a href="/f08-registrar-servicio.html">Registrar servicio</a>
-        <a href="/f09-consultar-servicios.html">Consultar servicios</a>
-        <a href="/f10-actualizar-servicio.html">Actualizar servicio</a>
-        <a href="/f11-registrar-odontologo.html">Registrar odontólogo</a>
-        <a href="/f12-consultar-odontologos.html">Consultar odontólogos</a>
-        <a href="/f13-actualizar-odontologo.html">Actualizar odontólogo</a>
-        <a href="/f14-registrar-consultorio.html">Registrar consultorio</a>
-        <a href="/f15-consultar-consultorios.html">Consultar consultorios</a>
-        <a href="/f16-registrar-horario.html">Registrar horario</a>
-        <a href="/f17-disponibilidad.html">Disponibilidad</a>
-        <a href="/f18-agendar-cita.html">Agendar cita</a>
-        <a href="/f19-cancelar-cita.html">Cancelar cita</a>
-        <a href="/f20-reprogramar-cita.html">Reprogramar cita</a>
-        <a href="#" onclick="cerrarSesion(); return false;">Cerrar sesión</a>
+        <p class="menu-label">MENÚ PRINCIPAL</p>
+        <a href="dashboard.html" th:href="@{/dashboard}">Inicio</a>
+        <a href="f03-consultar-pacientes.html" th:href="@{/f03-consultar-pacientes.html}">Pacientes</a>
+        <a href="f06-consultar-categorias.html" th:href="@{/f06-consultar-categorias.html}">Categorías</a>
+        <a class="active" aria-current="page" href="f09-consultar-servicios.html" th:href="@{/f09-consultar-servicios.html}">Servicios</a>
+        <a href="f12-consultar-odontologos.html" th:href="@{/f12-consultar-odontologos.html}">Odontólogos</a>
+        <a href="f15-consultar-consultorios.html" th:href="@{/f15-consultar-consultorios.html}">Consultorios</a>
+        <a href="f17-disponibilidad.html" th:href="@{/f17-disponibilidad.html}">Horarios</a>
+        <a href="f18-agendar-cita.html" th:href="@{/f18-agendar-cita.html}">Citas</a>
+        <a class="logout-link" href="index.html" th:href="@{/}">Cerrar sesión</a>
     </aside>
     
         <!-- Área principal: aquí cambia el formulario, tabla o información de cada módulo. -->
@@ -55,7 +39,7 @@
 <section class="form-container">
     <!-- F08: Registrar servicio. -->
     <!-- Formulario de esta operación. Los campos required evitan enviarlo incompleto. -->
-    <form onsubmit="guardarFormulario(event, 'servicio')">
+    <form action="/f09-consultar-servicios.html" method="get">
         <div class="form-grid">
             
         <div class="form-group">
@@ -77,7 +61,6 @@
             <button class="btn btn-secondary" type="reset">Limpiar</button>
         </div>
 
-        <div id="message" class="message"></div>
     </form>
 </section>
 
